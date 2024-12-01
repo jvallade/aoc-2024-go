@@ -6,18 +6,14 @@ import (
 	"testing"
 )
 
-const example string = `.|...\....
-|.-.\.....
-.....|-...
-........|.
-..........
-.........\
-..../.\\..
-.-.-/..|..
-.|....-|.\
-..//.|....`
+const example string = `3   4
+4   3
+2   5
+1   3
+3   9
+3   3`
 
-const expectedResultPart1 int = 46
+const expectedResultPart1 int = 11
 const expectedResultPart2 int = 51
 
 func TestPart1(t *testing.T) {

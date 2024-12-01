@@ -5,6 +5,9 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"slices"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -26,10 +29,32 @@ func main() {
 }
 
 func Part1(input *bufio.Scanner) int {
+	list1 := make([]int, 0)
+	list2 := make([]int, 0)
 	for input.Scan() {
+		fields := strings.Fields(input.Text())
+		n1, err := strconv.Atoi(fields[0])
+		if err != nil {
+			log.Fatal(err)
+		}
+		n2, err := strconv.Atoi(fields[1])
+		if err != nil {
+			log.Fatal(err)
+		}
+		list1 = append(list1, n1)
+		list2 = append(list2, n2)
 	}
-
-	return 0
+	slices.Sort(list1)
+	slices.Sort(list2)
+	res := 0
+	for i := 0; i < len(list1); i++ {
+		if list1[i] >= list2[i] {
+			res += list1[i] - list2[i]
+		} else {
+			res += list2[i] - list1[i]
+		}
+	}
+	return res
 }
 
 func Part2(input *bufio.Scanner) int {
