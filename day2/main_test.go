@@ -14,7 +14,7 @@ const example string = `7 6 4 2 1
 1 3 6 7 9`
 
 const expectedResultPart1 int = 2
-const expectedResultPart2 int = 31
+const expectedResultPart2 int = 4
 
 func TestPart1(t *testing.T) {
 	input := strings.NewReader(example)
